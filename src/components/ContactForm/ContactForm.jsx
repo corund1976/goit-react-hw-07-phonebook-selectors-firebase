@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
 import s from './ContactForm.module.css';
-import { addContact } from '../../redux/phonebook/operations';
-import { getItems } from "../../redux/phonebook/selectors";
+import { addContact } from '../../redux/contacts/contactsOperations';
+import { getItems } from "../../redux/contacts/contactsSelectors";
 
 function ContactForm() {
   const [name,setName] = useState('');

@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 import s from './ContactList.module.css';
 import Contact from '../Contact';
-import { visibleContacts } from "../../redux/phonebook/selectors";
+import { visibleContacts } from '../../redux/contacts/contactsSelectors';
 
 function ContactList() {
   const contactsToContactList = useSelector(visibleContacts);

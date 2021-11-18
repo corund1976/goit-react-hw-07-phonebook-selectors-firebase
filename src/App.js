@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 import './App.css';
 import Container from './components/Container';
@@ -7,13 +7,13 @@ import Section from './components/Section';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
-import { fetchContacts } from './redux/phonebook/operations';
+import { getContacts } from './redux/contacts/contactsOperations';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (

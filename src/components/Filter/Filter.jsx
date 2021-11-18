@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 
 import s from './Filter.module.css';
-import { changeFilter } from '../../redux/phonebook/actions';
-import { getFilter } from "../../redux/phonebook/selectors";
+import { changeFilter } from '../../redux/contacts/contactsActions';
+import { getFilter } from '../../redux/contacts/contactsSelectors';
 
 function Filter() {
   const filterToFilter = useSelector(getFilter);
