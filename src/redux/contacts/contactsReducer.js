@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 
-import { addContactSuccess, deleteContactSuccess, changeFilter, getContactsSuccess } from './contactsActions';
+import { getContactsRequest, getContactsSuccess, getContactsError, addContactRequest, addContactSuccess, addContactError, deleteContactRequest, deleteContactSuccess, deleteContactError, changeFilter } from './contactsActions';
 
 const initialState = {
   contacts: {
@@ -20,7 +20,17 @@ const contactsFilterReducer = createReducer(initialState.contacts.filter, {
   [changeFilter]: (_, { payload }) => payload,
 });
 
+const errorReducer = createReducer(null, {
+  [getContactsError]: (_, { payload }) => payload,
+  [getContactsRequest]: () => null, //стираем ошибку, чтоб не висела перед глазами всё время
+  [addContactError]: (_, { payload }) => payload,
+  [addContactRequest]: () => null,
+  [deleteContactError]: (_, { payload }) => payload,
+  [deleteContactRequest]: () => null,
+});
+
 export default combineReducers({
   items: contactsItemsReducer,
   filter: contactsFilterReducer,
+  error: errorReducer,
 });
