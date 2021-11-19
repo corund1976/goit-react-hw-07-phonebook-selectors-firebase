@@ -28,15 +28,18 @@ function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    //Создаём новый контакт
+    const contact = { name, number };
     // Проверка на повторный ввод существующего контакта
     const normalizedName = name.toLowerCase();
+    
     contactsToContactForm.some(contact =>
       contact.name.toLowerCase() === normalizedName ||
       contact.number === number)
       ?
-        alert(`${name} is already in contacts.`)
-      : 
-        dispatch(addContact({ name, number }));
+      alert(`${name} is already in contacts.`)
+      :
+      dispatch(addContact(contact));
     resetLocalState();
   };
 
